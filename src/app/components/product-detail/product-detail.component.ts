@@ -25,10 +25,13 @@ import {
 })
 export class ProductDetailComponent {
   product$ = this.productService.getSelectedProduct();
+  selectedId$ = this.productService.getSelectedProductId();
+
 
   constructor(private productService: ProductService) {}
 
   close(): void {
     this.productService.clearSelection();
   }
+
 }

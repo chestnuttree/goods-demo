@@ -1,4 +1,4 @@
-<div class="detail-sidebar" [@slideIn]="!!(product$ | async)">
+<div class="detail-sidebar" [@slideIn]="!!(selectedId$ | async)">
     <div *ngIf="product$ | async as product" class="detail-content">
       <button class="close-btn" (click)="close()">×</button>
       <img [src]="product.image" alt="{{product.title}}">
