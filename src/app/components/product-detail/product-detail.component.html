@@ -1,0 +1,10 @@
+<div class="detail-sidebar" [@slideIn]="!!(product$ | async)">
+    <div *ngIf="product$ | async as product" class="detail-content">
+      <button class="close-btn" (click)="close()">×</button>
+      <img [src]="product.image" alt="{{product.title}}">
+      <h2>{{ product.title }}</h2>
+      <p class="category">{{ product.category }}</p>
+      <p class="price">{{ product.price | currency }}</p>
+      <p class="description">{{ product.description }}</p>
+    </div>
+  </div>
