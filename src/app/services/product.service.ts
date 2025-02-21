@@ -8,9 +8,9 @@ export class ProductService {
   // Stream emitting product list updates
   private products$ = new BehaviorSubject<Product[]>([]);
 
-  // Maintains selected product ID with localStorage sync
+  // Maintains selected product ID with sessionStorage sync
   private selectedProductId$ = new BehaviorSubject<number | null>(
-    parseInt(localStorage.getItem('selectedProductId') || '') || null
+    parseInt(sessionStorage.getItem('selectedProductId') || '') || null
   );
 
   constructor(private http: HttpClient) {
@@ -37,12 +37,12 @@ export class ProductService {
 
   selectProduct(id: number): void {
     this.selectedProductId$.next(id);
-    localStorage.setItem('selectedProductId', id.toString());
+    sessionStorage.setItem('selectedProductId', id.toString());
   }
 
   clearSelection(): void {
     this.selectedProductId$.next(null);
-    localStorage.removeItem('selectedProductId');
+    sessionStorage.removeItem('selectedProductId');
   }
 
   private loadProducts(): void {
